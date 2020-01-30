@@ -36,7 +36,7 @@ void output (int meters, int centi) {
   cout << "Meters: " << meters << " Centimeters: " << centi << endl;
 }
 
-//calls the functions
+//the main function calls the functions and intializes the variables
 int main()  {
   //intialize variables
   int feet = 0;
