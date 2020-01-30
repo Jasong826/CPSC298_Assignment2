@@ -22,17 +22,21 @@ int userInput(int &feet, int &inches) {
 }
 
 //this function converts from feets and inches to meters and centimeters
-int calc (int feet, int &inches, int &meters, int &centi) {
+int calc (int feet, int &inches, int meters, int &centi) {
   cout << "Converting..." << endl;
-  inches = feet * 12;
-  centi = inches*2.54;
-  meters = centi/100;
-  centi = centi - (meters*100);
-  return meters, centi;
+  inches = (feet * 12) + inches;
+  centi = inches * 2.54;
+
+  return centi;
 }
 
+
 //prints out the meters and centimeters
-void output (int meters, int centi) {
+void output (int &meters, int &centi) {
+  while (centi > 100) {
+    centi = centi -100;
+    meters = meters + 1;
+  }
   cout << "Meters: " << meters << " Centimeters: " << centi << endl;
 }
 
@@ -46,6 +50,7 @@ int main()  {
 
   userInput(feet, inches);
   calc(feet, inches, meters, centi);
+
   output(meters, centi);
 
 
